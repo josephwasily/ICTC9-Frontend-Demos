@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      section {
+        border: 1px solid black;
+        width: 502px;
+        height: 500px;
+        display: flex;
+        flex-direction: row;
+        /* align-content:center; */
+        justify-content: flex-start;
+        align-items: flex-start;  
+        align-content: flex-start;
+        flex-wrap: wrap;
+      }
+      .child {
+        border: 1px solid red;
+        height:50px;
+        /* flex-grow: 1;
+        flex-basis: 0%;
+        flex-shrink: 1; */
+        /* flex:1; */
+        flex: 1;
+        flex-basis: 50%;
+      }
+      .child1 {
+        /* flex:2; */
+        /* flex-basis: 50%;
+        flex-shrink: 0; */
+      }
+      .child2 {
+        /* flex-grow: 1;
+        flex-shrink: 1; */
+      }
+      .child3 {
+       
+      
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="child child1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum obcaecati, corporis porro ex blanditiis eaque quam maxime suscipit ut sapiente velit iure nemo voluptate, officia molestias quaerat modi dicta exercitationem! Doloribus dicta ad vero a, minima assumenda id. Velit neque, exercitationem, sed nisi, vel rem deleniti consequuntur reiciendis nihil maiores necessitatibus sunt quos harum aspernatur voluptatum esse aliquid veritatis iusto sit dolorum quo laboriosam. Vitae et unde saepe earum nihil consequuntur ad voluptates commodi sit sint quae ratione eum molestias soluta numquam quia nulla tempora, sequi non? Iusto autem libero necessitatibus perferendis sit numquam, dignissimos voluptatibus odit qui modi quisquam?</div>
+      <div class="child child2">Hello</div>
+      <div class="child child3">1</div>
+ 
+
+    </section>
+  </body>
+</html>

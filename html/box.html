@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+        p.box {
+            display: block;
+            /* border: 2px solid red; */
+            width: 400px;
+            /* height: 100px ;
+            overflow: auto; */
+            /* border-top-width: 5px; */
+            /* border-top-style: solid;
+            border-top-color: red; */
+            /* border-right-width: 5px; */
+            /* border-right-style: solid;
+            border-right-color: red; */
+            /* border-bottom-width: 5px; */
+            /* border-bottom-style: solid;
+            border-bottom-color: red; */
+            /* border-left-width: 5px; */
+            /* border-left-style: solid;
+            border-left-color: red; */
+
+            /* border-width: 10px 5px 30px;
+            border-color: red;
+            border-style: solid; */
+            
+            border: 10px solid red;
+            /* margin: 10px 50px 20px 30px; */
+            padding: 60px;
+            
+        }
+        /*margin collapse */
+        p.box:nth-child(1){
+            margin-bottom: 20px;
+
+        }
+        p.box:nth-child(2){
+            margin-top: 60px;
+
+        }
+ 
+ 
+        /* span {
+            display: inline-block;
+            height: 200px;
+            width: 200px;
+            border: 1px solid red;
+        } */
+
+        div {
+            border: 1px solid green
+        }
+
+        span.inline-element {
+            display: inline-block;
+            border: 20px solid red;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem, ipsum <span class="inline-element">dolor</span> sit amet consectetur adipisicing elit. Mollitia ipsa delectus explicabo incidunt iusto autem harum praesentium amet consequuntur, architecto saepe enim nostrum distinctio, fugit laudantium ducimus. Esse adipisci sit cumque voluptas iure, eius nihil tenetur praesentium a eum voluptate maxime sequi tempore magni quaerat ratione vero ea fuga aperiam laudantium illo pariatur odio? Et quia quae, vel temporibus minus nesciunt eum nulla ratione, maxime expedita dolorum ad illum. Voluptate fuga accusantium consequatur. Incidunt asperiores quae ipsum quisquam, ratione, sed voluptatibus facere ut qui saepe consequatur quis, totam ullam similique delectus soluta maxime doloremque reiciendis recusandae! Dolorum harum reprehenderit ullam.</p>
+    <p class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dolor, impedit quibusdam eveniet repellendus ab ad nisi consequuntur dolores voluptate quos similique! Temporibus illum modi dolores facilis nulla dignissimos asperiores necessitatibus, quod commodi voluptates, consequuntur saepe accusantium! Quam at quasi dolore suscipit repellendus fugit fuga? Incidunt aliquam odit harum et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quisquam, quibusdam, natus velit, dolores nesciunt veniam autem nemo quod quia tenetur dolorem fugiat. Nemo tempore nam maiores ipsam culpa. Esse quidem itaque id aut temporibus animi quam maxime expedita consequatur quia neque, veritatis deleniti autem odio quos fuga quis laboriosam, velit dolor dolore sint cumque nesciunt minus. Incidunt laborum debitis repudiandae nam nesciunt nobis vero dicta quo quos ipsum quisquam nemo quaerat aliquam ullam dolor architecto aperiam beatae, eaque molestiae? Dicta quibusdam magni quasi qui voluptatum fugit ipsam dignissimos ullam ad! Earum labore hic nesciunt fuga fugit maiores numquam excepturi.</p>
+    <p class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore dolor, impedit quibusdam eveniet repellendus ab ad nisi consequuntur dolores voluptate quos similique! Temporibus illum modi dolores facilis nulla dignissimos asperiores necessitatibus, quod commodi voluptates, consequuntur saepe accusantium! Quam at quasi dolore suscipit repellendus fugit fuga? Incidunt aliquam odit harum et. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quisquam, quibusdam, natus velit, dolores nesciunt veniam autem nemo quod quia tenetur dolorem fugiat. Nemo tempore nam maiores ipsam culpa. Esse quidem itaque id aut temporibus animi quam maxime expedita consequatur quia neque, veritatis deleniti autem odio quos fuga quis laboriosam, velit dolor dolore sint cumque nesciunt minus. Incidunt laborum debitis repudiandae nam nesciunt nobis vero dicta quo quos ipsum quisquam nemo quaerat aliquam ullam dolor architecto aperiam beatae, eaque molestiae? Dicta quibusdam magni quasi qui voluptatum fugit ipsam dignissimos ullam ad! Earum labore hic nesciunt fuga fugit maiores numquam excepturi.</p>
+    <!-- <p class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid esse quasi nobis quod corporis, quis totam pariatur explicabo deleniti asperiores?</p>
+    <p class="box">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa hic corporis minus amet voluptates quod unde autem quam, enim temporibus?</p>
+
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia pariatur distinctio harum tenetur ut similique quis dolores? Eligendi nobis quis, ullam minus quos repellat, doloribus nihil necessitatibus nemo incidunt dolor.</p>
+        <span>First Element</span>
+        <span>Second Element</span>
+        <span>Third Element</span>
+    </div>
+    <span>sdasd</span> -->
+   
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Positioning Example 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            position: relative;
+        }
+        .container img {
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+        .topleft {
+            position: absolute;
+            top:0px;
+            left:0px;
+        }
+        .topright {
+            position: absolute;
+            top:0px;
+            right:0px;
+        }
+        .bottomleft {
+            position: absolute;
+            bottom:0px;
+            left:0px;
+        }
+        .bottomright {
+            position: absolute;
+            bottom:0px;
+            right:0px;
+        }
+        .centered {
+            position: absolute;
+            top: 50%;
+            right: 50%;
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://www.w3schools.com/css/img_5terre_wide.jpg">
+
+        <div class="topleft">Top Left</div>
+        <div class="topright">Top Right</div>
+        <div class="bottomleft">Bottom Left</div>
+        <div class="bottomright">Bottom Right</div>
+        <div class="centered">Centered</div>
+
+    </div>
+</body>
+</html>

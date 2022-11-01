@@ -1,0 +1,118 @@
+
+* {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+p {
+    font-size: 16px;
+}
+
+
+.main-paragraph {
+    color: lowercase;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: lowercase;
+
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.main-paragraph2 {
+    color: aqua;
+}
+/* p {
+
+} */
+
+/* this is the style for the first paragraph in the index */
+#first{
+    text-decoration: underline;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+[title=second-paragraph]{
+    color: brown;
+}
+/* 
+ul .first {
+    color: blue;
+
+} */
+
+ul>.first{
+    color: blue;
+}
+
+p,pre,blockquote{
+    font-style: italic;
+}
+
+/* .first-paragraph,.second-paragraph {
+
+}
+
+#first,#second,p.first-paragraph {
+
+} */
+
+
+p.first-paragraph{
+    color: chartreuse;
+    line-height: 50px;
+}
+
+ol *{
+    border: 1px blue solid; 
+}
+
+div~h3{
+    color: red;
+}
+
+a:visited{
+    color:red;
+}
+a:link{
+    color:aqua;
+}
+
+div.box {
+    height:100px;
+    width: 100px;
+    background-color: blue;
+}
+
+.box:hover{
+    background-color: red;
+}
+
+.box:active{
+    background-color: black;
+
+}
+
+input:focus{
+    border: 10px solid red;
+}
+
+p:first-child {
+    background-color: bisque;
+}
+
+p:nth-child(odd){
+    background-color: aquamarine;
+}
+
+/* p:not(){
+
+} */
+p::first-letter{
+    text-transform: uppercase;
+    color:brown;
+    font-size: 20px;
+    text-decoration: underline;
+}
+p::after{
+    content: "***";
+}

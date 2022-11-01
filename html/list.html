@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIST</title>
+    <style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .navbar {
+        width: 330px;
+        height: 55px;
+        background-color: #B8B0B0;
+        position: relative;
+    }
+    .List1, .List2, .List3 {
+        display: inline-block;
+        width: 110px;
+        text-align: center;
+        position: absolute;
+    }
+    .List1 {
+        left:0px;
+    }
+    .List2 {
+        left: 110px;
+    }
+    .List3 {
+        left: 220px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 17px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #FBF0F0;
+    }
+    
+    .lst {
+        list-style: none;
+        padding: 10px;
+        display: none; 
+        background-color: #DFD3D3;
+    }
+    .lst li {
+        margin-top: 5px;
+    }
+    .List1:hover .lst, .List2:hover .lst, .List3:hover .lst {
+        display: block;
+    }
+    .List1:hover, .List2:hover, .List3:hover {
+        background-color: #7C7575;
+    }
+    </style>
+
+</head>
+<body>
+    <div class="navbar">
+		<div class="List1">
+			<a href="#" class="btn button">List1</a>
+			<ul class="lst List1-items">
+				<li>List1 - item1</li>
+				<li>List1 - item2</li>
+				<li>List1 - item3</li>
+			</ul>
+		</div>
+		<div class="List2">
+			<a href="#" class="btn button2">List2</a>
+			<ul class="lst List2-items">
+				<li>List2 - item1</li>
+				<li>List2 - item2</li>
+				<li>List2 - item3</li>
+			</ul>
+		</div>
+		<div class="List3">
+			<a href="#" class="btn button3">List3</a>
+			<ul class="lst List3-items">
+				<li>List3 - item1</li>
+				<li>List3 - item2</li>
+				<li>List3 - item3</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

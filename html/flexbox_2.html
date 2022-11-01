@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            :root{
+                --black-color:  #121617;
+                --white-color: #f9f9fa;
+                --blue-color: #219EBC;
+                --blue-light-color: #40BEDD;
+                --dark-gray-color: #354144;
+
+            }
+            body {
+                font-family: 'Open Sans', sans-serif;
+                color: var(--black-color);
+            }   
+            .wrapper {
+                display: flex;
+                flex-direction: column;
+            }
+            header {
+                padding: 2rem 1rem;
+                text-align: center; 
+            }
+            main {
+                flex: 1;
+            }
+            footer {
+                padding: 2rem 1rem;
+                background-color: var(--black-color) ;
+                color: white;
+                text-align: center; 
+
+            }
+            .cards-container {
+                max-width: 1000px;
+                margin: 0 auto;
+                display: flex;
+                gap: 1rem;
+                flex-wrap: nowrap;
+                justify-content: center;
+
+            }
+            .card {
+                width: 300px;
+                padding: 2rem 1rem;
+                border-radius: 2px;
+                box-shadow: 1px 1px 15px rgba(0,0,0, 0.2);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: transform 0.2s;
+            }
+            .card:hover {
+                transform: translateY(-3px);
+            }
+            .cta-btn {
+                background-color: var(--blue-color);
+                color: white;
+                text-decoration: none;
+                font-weight: 700;
+                border-radius: 2px;
+                padding: 0.5rem 1rem;
+                width: max-content;
+                margin-top: 1rem;
+                transition: background-color 0.3s;
+            }
+            .cta-btn:hover{
+                background-color: var(--blue-light-color);
+             
+            }
+            .cta-section{
+                background-color: var(--white-color);
+                padding: 3rem 1rem;
+            }
+
+            .team-section {
+                padding: 3rem 1rem;
+            }
+            .team-card {
+                background-color:  var(--dark-gray-color);
+                color: #f9f9fa;
+            }
+            .team-card img {
+                max-width: 175px;
+                border-radius: 50%;
+                border: 2px solid var(--black-color);
+                margin-bottom: 1rem;
+                position: relative;
+                margin-top: -3rem; 
+            }
+            .team-card h3 {
+                margin-bottom: 1rem;
+            }
+
+            @media (max-width: 575.98px){
+            .cards-container {
+                flex-direction: column;     
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+    <header>
+        <h1>Guide to flexbox</h1>
+    </header>
+    <main>
+        <section class="cta-section">
+            <div class="cards-container">
+                <div class="card cta-card">
+                    <h3>Card Title</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id adipisci quidem dolorem nemo accusantium aut blanditiis quas dolores ex inventore.</p>
+                    <a class="cta-btn" href="#">Learn maiores</a>
+                </div>
+                <div class="card cta-card">
+                    <h3>Card Title</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id adipisci quidem dolorem nemo accusantium aut blanditiis quas dolores ex inventore.</p>
+                    <a class="cta-btn" href="#">Learn maiores</a>
+                </div>
+                <div class="card cta-card">
+                    <h3>Card Title</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id adipisci quidem dolorem nemo accusantium aut blanditiis quas dolores ex inventore.</p>
+                    <a class="cta-btn" href="#">Learn maiores</a>
+                </div>
+
+            </div>
+        </section>
+        <section class="team-section">
+            <div class="cards-container">
+                <div class="card team-card">
+                    <img src="https://randomuser.me/api/portraits/men/61.jpg" alt="photograph of person">
+                    <h3>Full Name</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, ipsa. Placeat doloremque laudantium ea, cupiditate rerum cumque ducimus nesciunt harum?</p>
+                </div>
+
+                <div class="card team-card">
+                    <img src="https://randomuser.me/api/portraits/men/61.jpg" alt="photograph of person">
+                    <h3>Full Name</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, ipsa. Placeat doloremque laudantium ea, cupiditate rerum cumque ducimus nesciunt harum?</p>
+                </div>
+                <div class="card team-card">
+                    <img src="https://randomuser.me/api/portraits/men/61.jpg" alt="photograph of person">
+                    <h3>Full Name</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, ipsa. Placeat doloremque laudantium ea, cupiditate rerum cumque ducimus nesciunt harum?</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h3>Footer</h3>
+    </footer>
+    </div>
+</body>
+</html>

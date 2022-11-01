@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 3</title>
+    <style>
+     :root {
+        --blue-color:  #219EBC;
+        --blue-light-color: #40BEDD;
+        --dark-gray-color: #354144;
+     }
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column; 
+        
+      }
+      header {
+        padding: 2rem 1rem;
+        align-self: center;
+      }
+      main {
+        min-height: 80vh;
+        min-width: 100vw;
+      }
+      footer {
+       
+        height: 50px;
+        text-align: center;
+        padding: 1rem;
+        background-color: black;
+        color: white;
+      }
+      .posts-section {
+        background-color: #f9f9fa;
+        min-height: 40vh;
+        padding: 3rem 1rem;
+
+
+      }
+      .cards-container {
+        /* max-width: 1000px; */
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+        justify-content: center;
+        gap: 1rem;
+      }
+      .card {
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        margin-top:10px;
+        box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+        align-items: center;
+        border-radius: 0.5px;
+        transition: transform 0.2s;
+        
+      }
+      .card h3 {
+        margin-bottom: 1rem;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+      }
+      .cta-btn {
+          color: white;
+          background-color: var(--blue-color) ;
+          padding: 0.5rem 1rem;
+          margin-top: 1rem;
+          border-radius: 0.5px;
+          transition: background-color 0.5s;
+          cursor: pointer;
+          font-weight: 700;
+
+      }
+      .cta-btn:hover {
+        background-color: var(--blue-light-color) ;
+      }
+
+      .team-section {
+        padding: 3rem 1rem;
+
+      }
+      .team-card {
+        color: white;
+        background-color: var(--dark-gray-color) ;
+      }
+      .team-card img {
+        max-width: 175px;
+        border-radius: 50%;
+        border: 1px solid black;
+        margin-top: -3rem;
+      }
+      .team-card h3 {
+        margin-top: 2rem;
+      }
+    
+    </style>
+  </head>
+  <div class="wrapper">
+    <body>
+      <header>
+        <h1>Guide to flexbox</h1>
+    
+      </header>
+      <main>
+        <section class="posts-section">
+            <div class="cards-container">
+                <div class="card post-card">
+                    <h3>Card Title</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eveniet maiores beatae repellat sunt, omnis commodi temporibus alias ab earum.</p>
+                    <a class="cta-btn">Learn More</a>
+                </div>
+                <div class="card post-card">
+                    <h3>Card Title</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eveniet maiores beatae repellat sunt, omnis commodi temporibus alias ab earum.</p>
+                    <a class="cta-btn">Learn More</a>
+                </div>
+                <div class="card post-card">
+                    <h3>Card Title</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eveniet maiores beatae repellat sunt, omnis commodi temporibus alias ab earum.</p>
+                    <a class="cta-btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+        <section class="team-section">
+            <div class="cards-container">
+                <div class="card team-card">
+                    <img src="https://xsgames.co/randomusers/assets/avatars/male/74.jpg">
+                    <h3>Full Name</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quibusdam enim eius id aut odit voluptas error obcaecati voluptates nobis!</p>
+
+                </div>
+                <div class="card team-card">
+                    <img src="https://xsgames.co/randomusers/assets/avatars/male/74.jpg">
+                    <h3>Full Name</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quibusdam enim eius id aut odit voluptas error obcaecati voluptates nobis!</p>
+
+                </div>
+                <div class="card team-card">
+                    <img src="https://xsgames.co/randomusers/assets/avatars/male/74.jpg">
+                    <h3>Full Name</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quibusdam enim eius id aut odit voluptas error obcaecati voluptates nobis!</p>
+
+                </div>
+                <div class="card team-card">
+                    <img src="https://xsgames.co/randomusers/assets/avatars/male/74.jpg">
+                    <h3>Full Name</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quibusdam enim eius id aut odit voluptas error obcaecati voluptates nobis!</p>
+
+                </div>
+            </div>
+        </section>
+      </main>
+
+      <footer>
+        <h4>Footer</h4>
+      </footer>
+    </body>
+  </div>
+</html>

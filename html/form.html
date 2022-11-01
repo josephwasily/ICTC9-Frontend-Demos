@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form</title>
+</head>
+<body>
+    <form  action="/submitform.php">
+        <fieldset>
+            <legend>Personal Information</legend>
+        <label for="fullname"><span style="color:red">*</span> Name</label>
+        <br>
+        <input required name="fullname" id="fullname" placeholder="your name" >
+        <br>
+        <label for="age">Age</label>
+        <input name="age" id="age" type="number" min="1" max="120">
+      </fieldset>
+        <br>
+        <br>
+        <label for="email">Email</label>
+        <br>
+        <input name="email" id="email" type="email" placeholder="ex. jwasily@gmail.com">
+        <br>
+        <label for="phone">Phone</label>
+        <br>
+        <input name="phone" id="phone" type="tel">
+        <br>
+        <label for="password">Password</label>
+        <br>
+        <input name="password" id="password" type="password">
+        <br>
+        <label for="birthdate">Birthdate</label>
+        <br>
+        <input name="birthdate" id="birthdate" type="date"  max="1979-12-31">
+    
+        <br>
+        <label for="scheduletime">Schedule Time</label>
+        <br>
+        <input name="scheduletime" id="scheduletime" type="datetime-local">
+        <br>
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">Hypertext markup language</label><br>
+        <input type="radio" id="css" name="fav_language" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">JavaScript</label>    
+        <br>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> I have a bike</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label>
+        
+        <br>
+        <input type="file" accept=".txt,.doc,.docx" > 
+
+        <br>
+        <label for="country">Select Country</label>
+        <select id="country" multiple name="country" size="2">
+            <option value="jo" selected>Jordan</option>
+            <option value="eg" selected>Egypt</option>
+            <option value="us">United States</option>
+
+        </select>
+        <label for="description">Enter Description about yourself</label>
+        <textarea id="description" name="description" rows="10" cols="50">hello world</textarea>
+        <br>
+        <button>Submit</button>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html> 

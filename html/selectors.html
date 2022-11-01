@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    
+    <style>
+        * {
+            margin: 10px;
+            
+        }
+        p {
+            color: red;
+        }
+        p.box {
+            color: blueviolet;
+        }
+        .box {
+            color:blue;
+            border: 1px solid red;
+        }
+        #container{
+            text-transform: uppercase;
+        }
+        .notbox {
+            border: 5px dotted black;
+        }
+        [class*='notbox']{
+            border: 5px dotted black;
+        }
+        [class]{
+            text-decoration: line-through;
+        }
+     
+        nav > :first-of-type {
+            text-transform: uppercase;
+        }
+
+        a:visited {
+            color: brown;
+        }
+        
+        .notbox::after{
+            content: "not a box ";
+        }
+        .notbox::first-letter{
+            color: blue;
+            font-size: x-large;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+        <a href="https://www.google.com">Contacts</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+        <a href="#">Team</a>
+        <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, dolores.</span>
+        </nav>
+    </header>
+    <p class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere illo quod, veniam tenetur dolorum. Vel, eaque molestias? Corporis quia omnis repudiandae consectetur. Id neque quaerat maiores mollitia iure ut accusantium, quis vitae odio ab eaque error nostrum. Tempora minus fuga eius officia dignissimos, accusamus nemo ex. Debitis, voluptatibus dolor.</p>
+    <p class="notbox second">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta facere illo quod, veniam tenetur dolorum. Vel, eaque molestias? Corporis quia omnis repudiandae consectetur. Id neque quaerat maiores mollitia iure ut accusantium, quis vitae odio ab eaque error nostrum. Tempora minus fuga eius officia dignissimos, accusamus nemo ex. Debitis, voluptatibus dolor.</p>
+
+    <div id="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia rem soluta dignissimos exercitationem illo laboriosam voluptatem velit fugiat modi dolorem. Architecto voluptatum molestiae mollitia, sapiente est illo natus quasi veritatis facilis laudantium adipisci, iste culpa soluta? Ea cum, hic nostrum omnis, repellendus temporibus, impedit molestias laborum in corrupti consequatur? Illum.</p>
+    </div>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, molestiae!</p>
+    <a href="#">About</a>
+
+</body>
+</html>
