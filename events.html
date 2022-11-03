@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+    <style>
+        body  * {
+            border: 1px solid red;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <section> Section
+        <div> Div
+            <p>P</p>
+        </div>
+        <div>
+
+        </div>
+    </section>
+    <script>
+        
+        let section = document.querySelector('section');
+        section.addEventListener('click',function(event){
+            alert('section was clicked');
+           
+        },{capture: true});
+        section.addEventListener('click',function(event){
+            alert('section was clicked - bubbled');
+        });
+          let div = document.querySelector('div');
+        div.addEventListener('click',function(event){
+            alert('div was clicked');
+            event.stopPropagation();
+        }, {capture: true});
+        div.addEventListener('click',function(event){
+            alert('div was clicked bubbled');
+        });
+        let p = document.querySelector('p');
+        p.addEventListener('click',function(event){
+            alert('p was clicked');
+        });
+    
+      
+        // div.addEventListener('click',function(event){
+        //     alert('div was clicked');
+        // });
+    </script>
+</body>
+</html>

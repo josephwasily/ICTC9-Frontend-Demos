@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form method="get" action="/submitform.php">
+        <fieldset>
+            <legend>Personal Information</legend>
+        <label for="fullname"><span style="color:red">*</span> Name</label>
+        <br>
+        <input  name="fullname" id="fullname" placeholder="your name" >
+        <br>
+        <label for="age">Age</label>
+        <input name="age" id="age" type="number" min="1" max="120">
+      </fieldset>
+        <br>
+        <br>
+        <label for="email">Email</label>
+        <br>
+        <input name="email" id="email" type="email" placeholder="ex. jwasily@gmail.com">
+        <br>
+        <label for="phone">Phone</label>
+        <br>
+        <input name="phone" id="phone" type="tel">
+        <br>
+        <label for="password">Password</label>
+        <br>
+        <input name="password" id="password" type="password">
+        <br>    
+        <label for="confirm">Confirm Password</label>
+        <br>
+        <input name="confirm" id="confirm" type="password">
+        <br>
+        <label for="birthdate">Birthdate</label>
+        <br>
+        <input name="birthdate" id="birthdate" type="date"  max="1979-12-31">
+    
+        <br>
+        <label for="scheduletime">Schedule Time</label>
+        <br>
+        <input name="scheduletime" id="scheduletime" type="datetime-local">
+        <br>
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">Hypertext markup language</label><br>
+        <input type="radio" id="css" name="fav_language" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">JavaScript</label>    
+        <br>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1"> I have a bike</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+        <label for="vehicle2"> I have a car</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+        <label for="vehicle3"> I have a boat</label>
+        
+        <br>
+        <input type="file" accept=".txt,.doc,.docx" > 
+
+        <br>
+        <label for="country">Select Country</label>
+        <select id="country" multiple name="country" size="2">
+            <option value="jo" selected>Jordan</option>
+            <option value="eg" selected>Egypt</option>
+            <option value="us">United States</option>
+
+        </select>
+        <label for="description">Enter Description about yourself</label>
+        <textarea id="description" name="description" rows="10" cols="50">hello world</textarea>
+        <br>
+        <button>Submit</button>
+        <p class="error"></p>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        let form = document.forms[0];
+        form.addEventListener('submit',function(event){
+            event.preventDefault();
+           //validation 
+            
+           //validate passwords
+            checkPassword();
+            checkAtLeastOneSelection();
+           // validate at least one checkbox is checked
+            //ajax 
+
+
+        });
+
+
+        function checkPassword(){
+            let error = document.querySelector('p.error');
+            let password = document.getElementById('password').value;
+           let confirm = document.getElementById('confirm').value;
+
+           console.log(password, confirm);
+           if(password !== confirm){
+                let span = document.createElement('span');    
+                span.innerText = 'Passwords are not the same';
+                error.append(span);
+           }
+
+
+           
+        }
+        function checkAtLeastOneSelection(){
+            let error = document.querySelector('p.error');
+            let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+        //    console.log(checkboxes);
+        //    let sumOfChecked = 0;
+        //    checkboxes.forEach(function(value){
+        //        if(value.checked){
+        //             sumOfChecked++;
+        //        }
+               
+        //    });
+           if(checkboxes.length == 0){
+                //alert('You have to select at least one element from transporation methods');
+                let span = document.createElement('span');    
+                span.innerText = 'You have to select at least one element from transporation methods';;
+                error.append(span);
+
+           }    
+        }
+
+        let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        console.log(checkboxes);
+        checkboxes.forEach((value)=> {
+            value.addEventListener('change', (event)=> {
+                console.log(event.target.checked);
+            });
+        });
+
+
+        // //arrow functions
+        // function sum(a,b){
+        //     return a+b;
+        // }
+        // let sum2 = (a,b)=> a+b;
+
+        // let random = function(){
+        //     return 123123;
+        // }
+        // let random2 = ()=> 123123;
+
+        // let square = function(x){
+        //     return x*x;
+        // }
+        // let square2 = x=> x*x;
+    </script>
+</body>
+</html> 

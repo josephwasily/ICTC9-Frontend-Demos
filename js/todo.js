@@ -14,21 +14,25 @@ function addTask(){
         let text = document.createTextNode(inputText.value);
         let button = document.createElement('button');
         button.innerText = 'Done';
-        button.addEventListener('click',function(e){
-            // console.dir(e);
-            let parentLi = e.target.parentNode;
-            console.dir(parentLi);
-            parentLi.classList.toggle('done');
-        });
+        button.id = 'done';
+      
+        // button.addEventListener('click',function(e){
+        //     // console.dir(e);
+        //     let parentLi = e.target.parentNode;
+        //     console.dir(parentLi);
+        //     parentLi.classList.toggle('done');
+        // });
 
         let deleteButton = document.createElement('button');
         deleteButton.innerText = 'Delete';
-        deleteButton.addEventListener('click',function(e){
-            // console.dir(e);
-            let parentLi = e.target.parentNode;
+        deleteButton.id = 'delete';
+
+        // deleteButton.addEventListener('click',function(e){
+        //     // console.dir(e);
+        //     let parentLi = e.target.parentNode;
            
-            console.dir(parentLi.parentNode.removeChild(parentLi));
-        });
+        //     console.dir(parentLi.parentNode.removeChild(parentLi));
+        // });
 
 
         li.appendChild(text);
@@ -81,5 +85,24 @@ inputSearch.addEventListener('keyup', function(event){
         else {
             todo.classList.remove('search-hidden');
         }
+    }
+});
+
+
+let ul = document.getElementById('todos');
+ul.addEventListener('click', function(event){
+    console.log(event.target.id);
+    if(event.target.id == 'delete'){
+        console.log(event.currentTarget.tagName);
+           
+        //delete li from ul
+        let parentLi = event.target.parentNode;
+        parentLi.parentNode.removeChild(parentLi);
+    }
+    if(event.target.id == 'done'){
+        // add class done to li 
+        let parentLi = event.target.parentNode;
+        console.dir(parentLi);
+        parentLi.classList.toggle('done');  
     }
 });
