@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .italic {
+            font-style: italic;
+        }
         .backgroundred{
             background-color: red;
         }
@@ -13,19 +16,20 @@
     </style>
   
 </head>
-<body>
-    <nav style="background-color: red;">
+<body >
+    <nav>
         <ul>
             <li>About</li>
         </ul>
     </nav>
-    <p id="first-paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur ducimus nobis commodi sapiente? Saepe ratione sit sapiente reprehenderit fugit amet repellat corporis, repellendus quia alias? Numquam deserunt totam quidem nemo non, quod, expedita alias quas, in porro eius. Amet voluptatibus voluptas similique esse ducimus, reiciendis maxime iste officiis iusto quae.</p>
+  
 
-    <ul class="items-list">
+    <ul class="items-list" >
         <li>item 1</li>
         <li>item 2</li>
         <li>item 3</li>
     </ul>
+    <p id="first-paragraph" data-show-info="hello">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur ducimus nobis commodi sapiente? Saepe ratione sit sapiente reprehenderit fugit amet repellat corporis, repellendus quia alias? Numquam deserunt totam quidem nemo non, quod, expedita alias quas, in porro eius. Amet voluptatibus voluptas similique esse ducimus, reiciendis maxime iste officiis iusto quae.</p>   
 
     <div class="element">
         <p>lorem 1</p>
@@ -45,7 +49,9 @@
     <button id="btn">Click me</button>
     <button id="btn-2">Add Element To List</button>
     <input id="textinput" type="text" disabled>
-    <script src="js/dom.js">
+    <script>
+        let ul = document.querySelector('.items-list');
+
 
     </script>
 </body>
