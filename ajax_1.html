@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX</title>
+  </head>
+  <body>
+    <script>
+      // let person = {
+      //     "name":'joseph',
+      //     age: 29,
+      //     isgraduated: true,
+      //     skills: [{lang: 'js'},{lang:'c#'}],
+      //     greet: function(){
+      //         console.log('hello');
+      //     } //this is the greeting function
+      // };
+
+      //let person2= "{firstName:'joseph'}";
+      //person2.firstName
+      //let personJson = JSON.stringify(person);\
+
+      // let personJson = '{"name":"joseph","age":29,"isgraduated":true,"skills":[{"lang":"js"},{"lang":"c#"}]}';
+      // let person = JSON.parse(personJson);
+      // console.log(person);
+      // console.log(personJson);
+      // const xhr = new XMLHttpRequest();
+      // const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+      // xhr.open('GET',apiUrl);
+      // xhr.onreadystatechange  = function(){
+      //     //console.log(xhr.readyState);
+      //     if(xhr.readyState == 4){
+      //         console.log(xhr.responseText);
+
+      //         let posts = JSON.parse(xhr.responseText);
+
+      //         console.log(posts);
+      //         //loop on posts
+
+      //         for(let post of posts){
+      //             console.log(post.title);
+      //         }
+      //     }
+      // }
+      // xhr.send();
+
+      //create new post
+      const apiUrl = "https://jsonplaceholder.typicode.com/posts";
+      let newPost = JSON.stringify({
+        title: "foo",
+        body: "bar",
+        userId: 1,
+      });
+
+      const xhr = new XMLHttpRequest();
+      xhr.onload = function(){
+        console.log(xhr.responseText);
+        let createdPost = JSON.parse(xhr.responseText);
+        console.log(createdPost.id);
+
+        //delete object 
+        let deleteXHR  = new XMLHttpRequest();
+        deleteXHR.open('DELETE', apiUrl+'/'+createdPost.id);
+        deleteXHR.send();
+      }
+      xhr.open('POST',apiUrl);
+      xhr.send(newPost);
+      console.log('after xhr send');
+
+
+    </script>
+  </body>
+</html>

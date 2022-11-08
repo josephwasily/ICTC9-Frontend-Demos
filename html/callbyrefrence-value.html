@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call By Value OR By Refernce</title>
+</head>
+<body>
+    
+
+    <script>
+        let x =1;
+        let y = x;
+        y++;
+        console.log(x);
+        console.log(y);
+
+        let person = {name: 'Joseph', age: 30};
+        let person2 = person;
+        person2.age++;
+
+        console.log(person2);
+        console.log(person);
+
+        function incrementByOne(obj){
+            obj.age++;
+        }
+
+        incrementByOne(person);
+        console.log(person); //pass by reference 
+
+        function incrementByOne2(number){
+            number++;
+        }
+
+        incrementByOne2(y);
+        console.log(y);
+
+        person2 = {age:30}; // pass new reference for new obj
+        person.age++;
+
+
+        let arrayOfPersons = [{name: 'joseph', age: 30}, {name: 'ahmad', age:22}];
+        arrayOfPersons.push(person2)
+
+        for(let person of arrayOfPersons){
+            person.age++;
+        }
+        console.log(arrayOfPersons); 
+        
+        setTimeout(()=> {
+            console.log('executed after 2 seconds');
+        }, 2000);
+        console.log('after timeout');
+        for(let i=0; i<100000; i++){
+            console.log(i);
+        }
+
+
+
+    </script>
+</body>
+</html>
