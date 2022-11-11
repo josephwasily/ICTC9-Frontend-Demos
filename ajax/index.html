@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <style>
+        .users-table {  
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Users</h1>
+
+    <form>
+        <label for="firstName">First Name</label>
+        <input id="firstName" name="firstName"  placeholder="enter firstName">
+        <label for="lastName">Last Name</label>
+        <input id="lastName" name="lastName"  placeholder="enter Last Name">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email"  placeholder="enter email">
+        <button>Submit</button>
+    </form>
+    <table class="users-table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Avatar</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+    </table>
+    <script>
+        let baseURI = 'https://reqres.in/api/';
+
+        
+        let form = document.querySelector('form');
+        form.addEventListener('submit',(event)=> {
+            event.preventDefault();
+
+            //create user 
+            createUser();
+        });
+
+        createTable();
+
+        function createTable (){
+            let getUsers = new XMLHttpRequest();
+            getUsers.open('GET', baseURI+'users');
+            getUsers.onload = ()=> {
+                let table = document.querySelector('.users-table');
+                console.dir(table);
+                let allUsers = JSON.parse(getUsers.responseText).data;
+                allUsers.forEach(element => {
+                    //insert row a table 
+                    console.log(element);
+                    let row = table.insertRow();
+                    //insert cells
+                    let firstNameCell = row.insertCell();
+                    firstNameCell.append(element.first_name);   
+                    
+                    let lastNameCell = row.insertCell();
+                    lastNameCell.append(element.last_name);   
+                    
+                    let emailCell = row.insertCell();
+                    emailCell.append(element.email);   
+                    
+                    let img = document.createElement('img');
+                    img.src = element.avatar;
+
+                    let avatarCell = row.insertCell();
+                    avatarCell.append(img);
+
+                    let deleteButton = document.createElement('button');
+                    deleteButton.append('Delete');
+                    row.insertCell().append(deleteButton);
+
+                    deleteButton.addEventListener('click',(event)=> {
+                        //delete user from server
+                        let deleteUser = new XMLHttpRequest();
+                        deleteUser.open('DELETE', baseURI+'unknown/'+element.id);
+                        deleteUser.onload = ()=> {
+                            console.log(event);
+                            event.target.parentNode.parentElement.remove();
+                        };
+                        deleteUser.onerror = (error)=> {
+                            console.log(error);
+                        }
+                        deleteUser.send();
+
+                        //remove row 
+                    });
+
+                });
+            }
+            getUsers.send();
+
+
+        }
+
+        function createUser(){
+            let form = document.forms[0];
+            let email = form.elements['email'].value;
+            let first_name = form.elements['firstName'].value;
+            let last_name = form.elements['lastName'].value;
+
+            let user = {
+                first_name: first_name, 
+                email: email,
+                last_name: last_name
+            };
+            let postUser = new XMLHttpRequest();
+            postUser.open("POST", baseURI+'users');
+            postUser.onload = ()=> {
+                alert('user was created successfully');
+                form.reset();
+            }
+            postUser.send(JSON.stringify(user));
+
+        }
+
+
+        
+    </script>
+</body>
+</html>
+
