@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email">
+        <label for="pass">Password</label>
+        <input type="password" name="pass" id="pass">
+        <button>Submit</button>
+    </form>
+    <script>
+        let form = document.querySelector('form');
+        form.addEventListener('submit', (event)=> {
+            event.preventDefault();
+
+            //get values and call api 
+            let email = form.elements['email'].value;
+            let password = form.elements['pass'].value;
+
+            let user = JSON.stringify( {
+                email: email,
+                password: password
+            });
+
+            let postLogin = new XMLHttpRequest();
+            postLogin.open('POST', 'https://reqres.in/api/login');
+            postLogin.setRequestHeader('content-type','application/json');
+            postLogin.onload = ()=> {
+               let response = JSON.parse(postLogin.responseText);
+
+               if(response.error != null){
+                    alert('login failed');
+               }
+               else {
+                    window.location.href = 'index.html';
+               }
+            }
+            postLogin.send(user);
+        
+
+
+        });
+    </script>
+</body>
+</html>
