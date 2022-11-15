@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello <span class="showname"></span></h1>
+    <label for="name">First Name</label>
+    <input placeholder="enter your name" id="name" name="name">
+    <label for="theme">Choose Color theme</label>
+    <select id="theme" name="theme">
+        <option value="dark" selected>Dark</option>
+        <option value="light">Light</option>
+    </select>
+    <script>
+        loadName();
+        loadTheme();
+        let input = document.querySelector('#name');
+        input.addEventListener('keyup', (event)=> {
+            document.querySelector('.showname').innerText = input.value;
+
+            save('name',input.value);
+        });
+
+        let select = document.querySelector('#theme');
+
+        select.addEventListener('change', (event)=> {
+            console.dir(select);
+
+            //save in local storage
+            save('theme', select.value);
+        });
+
+
+
+        function save(key, value){
+            localStorage.setItem(key, value);
+        }
+
+        function loadName(){
+            let name = localStorage.getItem('name');
+             if(name != null){
+                document.querySelector('.showname').innerText = name;
+            }
+
+
+        }
+        function loadTheme(){
+            let theme = localStorage.getItem('theme');
+            if(theme != null){
+                let select = document.querySelector('#theme');
+                Array.from(select.options).forEach(element => {
+                        element.selected = (element.value == theme);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
