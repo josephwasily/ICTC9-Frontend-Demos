@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let title = document.querySelector("h1");
+        let commentsContainer = document.querySelector("ul");
+
+        // let getPosts = new XMLHttpRequest();
+        // getPosts.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+        // getPosts.onload = ()=> {
+        //     // parse response
+        //     if(getPosts.status == 200){
+        //         let response = JSON.parse(getPosts.responseText);
+        //         let post = response[0];
+
+        //         // update title
+        //         title.innerText = post.title;
+
+        //         // get comments for the post
+        //         let getComments = new XMLHttpRequest();
+        //         getComments.open('GET','https://jsonplaceholder.typicode.com/posts/'+ post.id+'/comments');
+        //         getComments.onload = ()=> {
+        //                 if(getComments.status == 200){
+
+        //                     let comments = JSON.parse(getComments.responseText);
+        //                     comments.forEach(element => {
+        //                          let li = document.createElement('li');
+        //                          li.innerText = element.email;
+        //                          commentsContainer.append(li);
+        //                     });
+        //                 }
+        //         }
+        //         getComments.send();
+
+        //     //update ul add comments
+
+        //     }
+
+        // };
+        // getPosts.send();
+        let url = "https://jsonplaceholder.typicode.com/posts/";
+        let getPosts = fetch(url);
+        getPosts
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+          })
+          .then((json) => {
+            let post = json[0];
+            title.innerText = post.title;
+            return fetch(url+ post.id + "/comments");
+          })
+          .then((response) => response.json())
+          .then((json) => {
+            console.log(json);
+            json.forEach((element) => {
+              let li = document.createElement("li");
+              li.innerText = element.email;
+              commentsContainer.append(li);
+            });
+          })
+          .catch((error)=> {
+                console.log(error,'error from inside the catch');
+          }).finally(()=> {
+            console.log('finally');
+          });
+
+        console.log('after promises');
+
+
+        let isError = true;
+
+        let promiseObj = new Promise((resolve, reject)=> {
+
+            if(isError){
+                reject('Error state');
+            }
+            else {
+                resolve("Successfull");
+
+            }
+        });
+
+        
+        promiseObj
+        .then(response=> console.log(response))
+        .catch((error)=> console.log(error));    
+        
+        
+        function fetchClone(url){
+        return new Promise((resolve, reject)=> {
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+            xhr.onload = ()=> {
+                if(xhr.status == 200){
+                    resolve(JSON.parse(xhr.responseText));
+                }
+                else {
+                    reject('error in ajax call');
+                }
+            }
+            xhr.onerror = ()=> {
+                reject('error in ajax call');
+            }
+            xhr.send();
+
+        });
+      }
+
+      fetchClone(url+'/jsadajskhdkjsad')
+      .then((response)=> console.log(response,'log from our impressive fetch clone'))
+      .catch((error)=> {
+            if(error == "error in ajax call"){
+                alert('contact administraator');
+            }
+      });
+
+
+      function timer(milliseconds){
+            return new Promise((resolve, reject)=> {
+
+                setTimeout(resolve, milliseconds);
+            })
+      }
+
+      timer(1000)
+      .then(()=> {
+        console.log('affter 1000 milliseconds');
+      });
+
+
+
+
+      });
+
+
+
+
+     
+
+    </script>
+  </head>
+  <body>
+    <h1>Post Title</h1>
+    <ul></ul>
+  </body>
+</html>
