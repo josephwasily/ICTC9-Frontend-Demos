@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Combinators</title>
+  </head>
+  <body>
+    <script>
+
+
+    // try {
+    //   //xl; //ajax call - dom manipulation
+    //   console.log('after an error'); //unreachable
+    //   throw {message:'x1 is not defined'};
+    // }
+    // catch(e){
+    //     console.log(e.message);
+    //     if(e.message.includes('xl is not defined')){
+    //         alert('there is an error in javascript references');
+    //     }
+    // }
+    // finally{
+    //     console.log('finally');
+    // }
+
+
+      // fetchClone(url+'/jsadajskhdkjsad')
+      // .then((response)=> console.log(response,'log from our impressive fetch clone'))
+      // .catch((error)=> {
+      //       if(error == "error in ajax call"){
+      //           alert('contact administraator');
+      //       }
+      // });
+
+      let url = "https://jsonplaceholder.typicode.com/posts/";
+
+      function fetchClone(url) {
+        return new Promise((resolve, reject) => {
+          let xhr = new XMLHttpRequest();
+          xhr.open("GET", url);
+          xhr.onload = () => {
+            if (xhr.status == 200) {
+              resolve(JSON.parse(xhr.responseText));
+            } else {
+              reject("error in ajax call");
+            }
+          };
+          xhr.onerror = () => {
+            reject("error in ajax call");
+          };
+          xhr.send();
+        });
+      }
+
+      async function fetchData() {
+        //return 1;
+        try{
+        let response = await fetchClone(url+'/jsadajskhdkjsad');
+        console.log(response);
+    }catch(e){
+        console.log(e);
+    }
+        console.log('xyz');
+      }
+
+      //fetchData();
+
+
+        // let getPosts = fetch(url);
+        // getPosts
+        //   .then((response) => {
+        //     if (response.ok) {
+        //       return response.json();
+        //     }
+        //   })
+        //   .then((json) => {
+        //     let post = json[0];
+        //     title.innerText = post.title;
+        //     return fetch(url+ post.id + "/comments");
+        //   })
+        //   .then((response) => response.json())
+        //   .then((json) => {
+        //     console.log(json);
+        //     json.forEach((element) => {
+        //       let li = document.createElement("li");
+        //       li.innerText = element.email;
+        //       commentsContainer.append(li);
+        //     });
+        //   })
+        //   .catch((error)=> {
+        //         console.log(error,'error from inside the catch');
+        //   }).finally(()=> {
+        //     console.log('finally');
+        //   });
+
+
+
+        async function getPostsFunction(url){
+            let response = await fetch(url);
+            let json = await response.json();
+            let post = json[0];
+            console.log(post.title);
+            let commentsReponse = await fetch(url+post.id + '/comments');
+            let commentsJson = await commentsReponse.json();
+            commentsJson.forEach((element) => {
+             console.log(element);
+            });
+
+        }
+
+        //getPostsFunction(url);
+
+
+      
+        let p1 = Promise.resolve(1);
+
+        let p2 = function(milliseconds){
+            return new Promise((resolve, reject)=> {
+                setTimeout(()=> {
+                    resolve(milliseconds);
+                }, milliseconds);
+            }); 
+        }
+
+
+        // p2(1000)
+        // .then((response)=>{
+        //     console.log(response);
+
+        //     return p2(2000);
+        // })
+        // .then((response)=>{
+        //  console.log(response);
+        //     return p1;
+        // });
+
+        let allPromises = Promise.all([p2(1000), p2(2000), p1]);
+        
+        allPromises
+        .then((array)=> {
+            console.log(array);
+        }).catch((error)=> {
+            console.log(error,'from inside catch');
+            console.log(allPromises);
+        })
+
+        //all is fullfilled when all promises in array are fullfilled
+        //all is reject when any promise in array is rejected
+
+
+        let allPromisesSettled = Promise.allSettled([p2(2000), p2(1000), p1]);
+
+        allPromisesSettled.then((arrayOfStatus)=>{
+            console.log(arrayOfStatus);
+        })
+
+        //allSettled is fullfilled when all promises in array are either rejected or fullfilld
+
+        //allSettled is rejected : never
+
+
+
+        let allPromisesRace = Promise.race([ p2(1000),Promise.reject('error'),Promise.resolve(1)]);
+
+        allPromisesRace.then((response)=> {
+            console.log('result of race: '+response);
+        }).catch(error=> console.log(error));
+
+        //race promise is fullfilled when first promise is fulfilled (or)
+        //race promise is rejected when any of the promises are rejected (and)
+ 
+        
+        
+        let allPromisesAny = Promise.any([p2(1000), p2(2000), Promise.reject('error')]);
+
+        allPromisesAny.then((response)=> console.log(response, 'from any function'));
+
+        
+        //all promise is fullfilled when any of the promises is fulfilled (or)
+        //all promise is rejected when all of the promises are rejected (or)
+        //short curcuiting
+        
+    </script>
+  </body>
+</html>

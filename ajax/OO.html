@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented</title>
+    <style>
+        .button-clicked {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Click me</button>
+    <script>
+        let userFirstName = 'Joseph';
+        let userFamilyName = 'Botros';
+        let userAge = 30;
+        let user1 = {
+            firstName : 'Joseph',
+            familyName : 'Botros',
+            calculateBirthdate: function(){
+                return new Date().getFullYear()-this.age;
+            },
+            login: function(password){
+
+            }
+        };
+     
+        let user2 = {
+            firstName : 'Joseph',
+            familyName : 'Botros',
+            age: 30,
+            calculateBirthdate: function(){
+                return new Date().getFullYear()-this.age;}
+        };  
+
+
+        console.log(user2.calculateBirthdate());
+        console.log(user1.calculateBirthdate());
+       
+
+        class User {
+            #age;
+
+           
+            constructor(firstName, familyName, age){
+
+                this.fistName =  firstName;
+                this.familyName =  familyName;
+                this.fullName = `${firstName} ${familyName}`; //derived value / calculated value
+
+                this.age  = age+"";
+                this.x = 1;
+                
+            }
+
+            calculateBirthdate(){
+                console.log(new Date().getFullYear()-this.age);
+            }
+            //setter
+            setAge(age){
+                if(age < 0){
+                    throw Error('')
+                }
+                this.age = age;
+            }
+
+            //getter
+            getAge(){
+                return this.age;
+            }
+        }
+      
+        User.calculateBirthdate();
+        let user3 = new User('joseph','botros',30);
+        user3.z = 1;
+        user3.age
+        //console.log(user3);
+
+        user3.calculateBirthdate();
+        let user4 = new User('ahmad','hassan',22);
+        user4.calculateBirthdate();
+
+        
+        class Admin extends User {
+            constructor(firstName, familyName, age, levelOfAuth){
+                super(firstName, familyName, age);
+                this.levelOfAuth = levelOfAuth;
+            }
+        }
+
+        let admin1 = new Admin('joseph', 'tawfik', 40, 1);
+        console.log(admin1);
+        admin1.calculateBirthdate();
+        admin1.age = 40;
+        // function calculateBirthdate(user){
+        //     return new Date().getFullYear()-user.age;
+        // }
+
+        // let user2FirstName = 'Joseph';
+        // let user2FamilyName = 'Botros';
+        // let user2Age = 30;
+        
+
+    </script>
+</body>
+</html>         
