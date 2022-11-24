@@ -181,6 +181,29 @@
         //any promise is fullfilled when any of the promises is fulfilled (or)
         //any promise is rejected when all of the promises are rejected (or)
         //short curcuiting
+
+
+        async function callApis(){
+
+           let fetchGender = fetch('https://api.genderize.io?name=joseph').then((response)=> {
+            
+            //login async
+            return Promise.allSettled()
+          
+          
+          });
+           let fetchNationalize = fetch('https://api.nationalize.io?name=nathaniel').then((response)=> response.json());
+           let fetchAge = fetch('https://api.agify.io?name=meelad').then((response)=> response.json());
+
+           let fetchAll = await Promise.all([fetchGender,fetchNationalize,fetchAge]);
+
+           //manipulate DOM
+           
+          
+           
+           
+        }
+        
         
     </script>
   </body>
