@@ -51,3 +51,39 @@ switch (boxSize) {
     default:
         break;
 }
+//     let num = 1;
+//     num = 'asdasd';
+// document.addEventListener('click', (event)=> {
+//     event.charCode;
+// })
+let obj1 = {
+    firstName: 'joseph'
+};
+let obj2;
+obj2 = {
+    firstName: 'joseph',
+    lastName: 'botros',
+    language: {
+        motherlang: 'arabic'
+    },
+    isdeveloper: 'yes'
+};
+//obj2.firstName = 'asdasd'; //readonly 
+obj2.lastName = 'asdasdas';
+let obj3;
+class PostGresDatabase {
+    connectionString;
+    connect(retry) {
+        //connect login 
+        return true;
+    }
+    query(query) {
+        return "";
+    }
+    ;
+    constructor(connectionString) {
+        this.connectionString = connectionString;
+    }
+}
+let database = new PostGresDatabase("server;username;password");
+console.log(database);
