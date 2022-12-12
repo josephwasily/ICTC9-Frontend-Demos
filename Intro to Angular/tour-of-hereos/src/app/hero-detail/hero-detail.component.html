@@ -1,0 +1,14 @@
+
+<div *ngIf="hero != null; else unselected">
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div>id: {{hero.id}}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+  </div>
+</div>
+
+
+<ng-template #unselected>
+  <h2>Please select a hero</h2>
+</ng-template>

@@ -1,0 +1,14 @@
+<h1>Todos</h1>
+<input 
+
+[(ngModel)]='newTodo'
+placeholder="Enter a todo">
+<button (click)="addTodo()">Add</button>
+<ul class="todos" *ngIf="todos.length > 0">
+    <li *ngFor="let todo of todos;let i = index">
+    <span [class.completed]="todo.isCompleted">{{todo.content}}</span>
+    <button (click)="complete(todo, i)">Complete</button>
+    <button (click)="deleteTodo(i)">Delete</button>
+   
+    </li>
+</ul>

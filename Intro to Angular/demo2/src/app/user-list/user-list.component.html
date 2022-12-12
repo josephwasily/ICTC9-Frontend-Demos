@@ -1,0 +1,15 @@
+
+<input  [(ngModel)]="newUser" id="newuser" >
+<button (click)="print()">print</button>
+<!-- <button (click)="addNewUser(newUser.value)">Add</button> -->
+<ul>
+    <li *ngFor="let user of users;let i=index;">
+        
+        <span>{{user | uppercase }}</span> 
+
+        <a [routerLink]="['user', i]" [queryParams]="{'query1': true}"> View Details</a>
+    
+    </li>    
+</ul>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,27 @@
+<p>all-users works!</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Go to details
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td><a [routerLink]="['/users', user.id]"
+                [queryParams]="{admin: true, x: 1}"
+                >Go to user</a></td>
+        </tr>
+        
+    </tbody>
+</table>

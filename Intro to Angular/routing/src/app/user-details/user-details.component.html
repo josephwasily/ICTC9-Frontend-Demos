@@ -1,0 +1,16 @@
+
+
+<p>user-details works!</p>
+<div *ngIf="user">
+<p>{{user.name}}</p>
+</div>  
+
+<nav>
+    <a routerLink="./courses">Courses</a>
+    <a routerLink="./payments"> Payments</a>
+</nav>
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
+
+<button (click)="navigateToContact()">Back to Contact</button>

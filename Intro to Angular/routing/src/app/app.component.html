@@ -1,0 +1,13 @@
+<div class="container">
+  <nav>
+    <a routerLinkActive="active" [routerLink]="['/about']">About</a>
+    <a routerLinkActive="active" routerLink="/contact">Contact</a>
+    <a routerLinkActive="active" routerLink="/all-users">All Users</a>
+    <a routerLinkActive="active" routerLink="/products">All Products</a>
+
+  </nav>
+
+  <div class="content">
+      <router-outlet></router-outlet>
+  </div>  
+</div>
