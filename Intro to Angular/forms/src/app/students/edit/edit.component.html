@@ -1,0 +1,34 @@
+<div class="container" *ngIf="student">
+    <h2>Edit Student</h2>
+    <form #form="ngForm" (ngSubmit)="editStudent(form.value)">
+        {{form.value | json}}
+        <span *ngIf="fName.invalid">Only if invalid</span>
+        <mat-form-field>
+            <mat-label>Enter first Name</mat-label>
+            <input #fName="ngModel" required  matInput name="firstName" [(ngModel)]='student.firstName' >
+
+            <mat-error>first name is required</mat-error>
+           
+        </mat-form-field>
+     
+        <mat-form-field>
+            <mat-label>Enter last Name</mat-label>
+            <input  matInput name="lastName"  [(ngModel)]='student.lastName'>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Enter age</mat-label>
+            <input  matInput type="number" min="0" name="age" [(ngModel)]='student.age'>
+        </mat-form-field>
+
+        <mat-form-field >
+            <mat-label>Gender</mat-label>
+            <select matNativeControl required name="gender" [(ngModel)]='student.gender'>
+                <option value="" selected>Please Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </mat-form-field>
+          <button [disabled]="form.invalid" mat-raised-button color="primary">Submit</button>
+    </form>
+
+</div>
