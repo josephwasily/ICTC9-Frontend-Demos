@@ -37,7 +37,7 @@ export class StudentsService {
       let existingStudent = this.getStudentById(id);
       existingStudent.firstName = student.firstName;
       existingStudent.lastName = student.lastName;
-      existingStudent.age = student.age;
+      existingStudent.age = student.age;  
       existingStudent.gender = student.gender;
 
       console.log(existingStudent, 'student after update');

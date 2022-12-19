@@ -6,10 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateComponent } from './students/create/create.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AllStudentsComponent } from './students/all-students/all-students.component';
 import { EditComponent } from './students/edit/edit.component';
 import { DeleteComponent } from './students/delete/delete.component';
+import { CreateReactiveComponent } from './students/create-reactive/create-reactive.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +18,16 @@ import { DeleteComponent } from './students/delete/delete.component';
     CreateComponent,
     AllStudentsComponent,
     EditComponent,
-    DeleteComponent
+    DeleteComponent,
+    CreateReactiveComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
