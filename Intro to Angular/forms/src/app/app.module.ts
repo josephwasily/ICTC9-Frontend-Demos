@@ -11,6 +11,7 @@ import { AllStudentsComponent } from './students/all-students/all-students.compo
 import { EditComponent } from './students/edit/edit.component';
 import { DeleteComponent } from './students/delete/delete.component';
 import { CreateReactiveComponent } from './students/create-reactive/create-reactive.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CreateReactiveComponent } from './students/create-reactive/create-react
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

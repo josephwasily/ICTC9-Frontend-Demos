@@ -1,3 +1,4 @@
+import { StudentsAsyncService } from './../students-async.service';
 import { StudentsService } from './../students.service';
 import { Student } from './../student';
 import { Component, OnInit } from '@angular/core';
@@ -13,11 +14,17 @@ export class AllStudentsComponent implements OnInit {
   
   students: Student[]=[];
   displayedColumns:string[] = ['id', 'firstName', 'lastName', 'age', 'gender', 'actions'];
-  constructor(private studentsService: StudentsService, public dialog: MatDialog){
+  constructor(private studentsService: StudentsAsyncService, public dialog: MatDialog){
 
   }
   ngOnInit(): void {
-    this.students  = this.studentsService.getStudents();
+    this.getStudents();
+  }
+
+  getStudents(){
+    this.studentsService.getStudents().subscribe((response)=> {
+      this.students  = response;
+    });
   }
 
   deleteStudent(id: number){
@@ -30,7 +37,8 @@ export class AllStudentsComponent implements OnInit {
         console.log(result); 
 
         //refresh table 
-        this.students = this.studentsService.getStudents();
+        //this.students = this.studentsService.getStudents();
+        this.getStudents();
     })
 
   }

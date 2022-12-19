@@ -1,0 +1,12 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "firstName": "Joseph",
+      "lastName": "Botros",
+      "age": 30,
+      "gender": "male"
+    }
+  ],
+  "startups": []
+}

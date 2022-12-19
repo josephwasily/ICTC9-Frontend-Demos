@@ -27,7 +27,14 @@
           </mat-form-field> 
 
 
-
+          <mat-form-field >
+            <mat-label>Gender</mat-label>
+            <select matNativeControl required name="gender" formControlName="gender">
+                <option value="" selected>Please Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </mat-form-field>
  
           <br>
 
@@ -36,18 +43,23 @@
          
             <ng-container formArrayName="languages">
                 <ng-container *ngFor="let language of languages.controls; let i= index";>
-                    <div class="language">
-                        <mat-form-field [formGroupName]="i">
+                    <div class="language" [formGroupName]="i">
+                        <mat-form-field >
                                 <mat-label>Test</mat-label>
                                 <input matInput formControlName="title" placeholder="enter language">
                         </mat-form-field>
+                        <mat-form-field >
+                            <mat-label>Level</mat-label>
+                            <select matNativeControl required name="level" formControlName="level">
+                                <option value="" selected>Please Select Level</option>
+                              <option value="beginner">Level</option>
+                              <option value="advanced">Advanced</option>
+                            </select>
+                          </mat-form-field>
                         <button mat-icon-button color="warning" (click)="deleteLanguage(i)">
                             <mat-icon>delete</mat-icon>
-                            
                         </button>
-
                     </div>
-                       
                 </ng-container>
           </ng-container>
           <button mat-raised-button color="primary" (click)="addLanguage()">
