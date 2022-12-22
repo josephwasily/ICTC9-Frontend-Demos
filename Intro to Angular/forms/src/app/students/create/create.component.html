@@ -31,5 +31,9 @@
           <button [disabled]="form.invalid" mat-raised-button color="primary" (click)="submit()">Submit</button>
     </form>
 
-    {{this.students | json}}
+    <!-- {{this.students | json}} -->
+
+    <!-- {{this.students$ | async | json}} -->
+
+    <h1 *ngFor="let student of students$ | async">{{student.firstName}}</h1>
 </div>
