@@ -1,4 +1,4 @@
-<div class="container" *ngIf="student">
+<div class="container" *ngIf="student$ | async as student">
     <h2>Edit Student</h2>
     <form #form="ngForm" (ngSubmit)="editStudent(form.value)">
         {{form.value | json}}

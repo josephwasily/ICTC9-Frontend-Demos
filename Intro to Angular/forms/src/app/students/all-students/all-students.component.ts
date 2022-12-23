@@ -1,3 +1,4 @@
+import { StudentsFirebaseService } from './../students-firebase.service';
 import { StudentsAsyncService } from './../students-async.service';
 import { StudentsService } from './../students.service';
 import { Student } from './../student';
@@ -14,7 +15,7 @@ export class AllStudentsComponent implements OnInit {
   
   students: Student[]=[];
   displayedColumns:string[] = ['id', 'firstName', 'lastName', 'age', 'gender', 'actions'];
-  constructor(private studentsService: StudentsAsyncService, public dialog: MatDialog){
+  constructor(private studentsService: StudentsFirebaseService, public dialog: MatDialog){
 
   }
   ngOnInit(): void {
@@ -22,12 +23,14 @@ export class AllStudentsComponent implements OnInit {
   }
 
   getStudents(){
-    this.studentsService.getStudents().subscribe((response)=> {
+    this.studentsService.getStudents()
+    .subscribe((response)=> {
+      console.log(response);
       this.students  = response;
     });
   }
 
-  deleteStudent(id: number){
+  deleteStudent(id: string){
    console.log(id);
    let dialogRef = this.dialog.open(DeleteComponent, {
       width: '500px',

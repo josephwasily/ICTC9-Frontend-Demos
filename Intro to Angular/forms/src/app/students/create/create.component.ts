@@ -1,3 +1,4 @@
+import { StudentsFirebaseService } from './../students-firebase.service';
 import { HttpClient } from '@angular/common/http';
 import { StudentsAsyncService } from './../students-async.service';
 import { StudentsService } from './../students.service';
@@ -18,7 +19,7 @@ export class CreateComponent implements OnInit, OnDestroy {
   students:Student[] = [];
   students$? : Observable<Student[]>;
   sub?: Subscription;
-  constructor(private studentsService: StudentsAsyncService, private router: Router, private http: HttpClient){
+  constructor(private studentsService: StudentsFirebaseService, private router: Router, private http: HttpClient){
 
   }
   ngOnDestroy(): void {
@@ -27,64 +28,65 @@ export class CreateComponent implements OnInit, OnDestroy {
     
   }
   ngOnInit(): void {
-   this.studentsService.getStudents().subscribe((students)=> {
-    this.students = students;
-   });
+  //  this.studentsService.getStudents().subscribe((students)=> {
+  //   this.students = students;
+  //  });
 
-    let obs$ = new Observable((subscriber)=> {
-        subscriber.next('first event');
-        setTimeout(()=> {
-            subscriber.next('second event after period of time');
-            //subscriber.error();
+   this.students$  =this.studentsService.getStudents();
+    // let obs$ = new Observable((subscriber)=> {
+    //     subscriber.next('first event');
+    //     setTimeout(()=> {
+    //         subscriber.next('second event after period of time');
+    //         //subscriber.error();
 
-            //logic 
-        }, 1000);
+    //         //logic 
+    //     }, 1000);
        
-    });
-    let observer = {
-      next: (val: any)=> console.log(val),
-      error: (error: any)=> console.log(error, 'from the observer/subscriber'),
-      complete: ()=> console.log('the observable has completed')
-    }
-    // obs$.subscribe((value)=>  {
-    //     console.log(value);
     // });
+    // let observer = {
+    //   next: (val: any)=> console.log(val),
+    //   error: (error: any)=> console.log(error, 'from the observer/subscriber'),
+    //   complete: ()=> console.log('the observable has completed')
+    // }
+    // // obs$.subscribe((value)=>  {
+    // //     console.log(value);
+    // // });
     
-    let obs2$ = from([{isUrgent: true, title: 'catastrophe'}, {isUrgent: false, title: 'regular event'}])
-    .pipe(
+    // let obs2$ = from([{isUrgent: true, title: 'catastrophe'}, {isUrgent: false, title: 'regular event'}])
+    // .pipe(
       
-      filter((value)=> value.isUrgent),
-      map((value)=> value.title),
+    //   filter((value)=> value.isUrgent),
+    //   map((value)=> value.title),
 
-    );
-    obs2$.subscribe((value)=> alert(value));
+    // );
+    // obs2$.subscribe((value)=> alert(value));
 
-    // obs2$.subscribe((value)=>{
-    //   if(value.isUrgent){
-    //     alert(value.title);
-    //   }
-    // })
+    // // obs2$.subscribe((value)=>{
+    // //   if(value.isUrgent){
+    // //     alert(value.title);
+    // //   }
+    // // })
 
-    let obs3$ =  fromEvent(document, 'click');
-    this.sub =  obs3$.subscribe((value)=> {
-      console.log(value);
-    });
-    // setTimeout(()=> this.sub.unsubscribe(), 5000);
+    // let obs3$ =  fromEvent(document, 'click');
+    // this.sub =  obs3$.subscribe((value)=> {
+    //   console.log(value);
+    // });
+    // // setTimeout(()=> this.sub.unsubscribe(), 5000);
 
-    let nationality$ = this.http.get<Nationality>('https://api.nationalize.io?name=nathaniel')
-    .pipe(
-      map((obj)=> {
-        let codes = '';
-        obj.country.forEach(element => {
-            codes+= element.country_id+','
-        });
-        return codes;
-      }),
-      switchMap((value)=> {
-          return this.http.get<RestCountry[]>('https://restcountries.com/v3.1/alpha?codes='+value)
-      }),
-      map((value)=> value.map((x)=>  {x.name.common}))
-    ).subscribe(value=> console.log(value));
+    // let nationality$ = this.http.get<Nationality>('https://api.nationalize.io?name=nathaniel')
+    // .pipe(
+    //   map((obj)=> {
+    //     let codes = '';
+    //     obj.country.forEach(element => {
+    //         codes+= element.country_id+','
+    //     });
+    //     return codes;
+    //   }),
+    //   switchMap((value)=> {
+    //       return this.http.get<RestCountry[]>('https://restcountries.com/v3.1/alpha?codes='+value)
+    //   }),
+    //   map((value)=> value.map((x)=>  {x.name.common}))
+    // ).subscribe(value=> console.log(value));
   //this.students =
 
 

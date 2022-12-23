@@ -1,3 +1,4 @@
+import { StudentsFirebaseService } from './../students-firebase.service';
 import { StudentsAsyncService } from './../students-async.service';
 import { StudentsService } from './../students.service';
 import { Component, Inject } from '@angular/core';
@@ -11,7 +12,7 @@ import { ɵInjectableAnimationEngine } from '@angular/platform-browser/animation
 })
 export class DeleteComponent {
 
-  constructor(private studentsService: StudentsAsyncService,
+  constructor(private studentsService: StudentsFirebaseService,
       private dialogRef: MatDialogRef<DeleteComponent>,
       @Inject(MAT_DIALOG_DATA) private data: any
     ){
