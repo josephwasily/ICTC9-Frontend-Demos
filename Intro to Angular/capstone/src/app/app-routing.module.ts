@@ -11,7 +11,10 @@ const routes: Routes = [
 },
   {path:'admin', loadChildren: ()=> import('./pages/admin/admin.module').then((m)=> m.AdminModule), 
   canActivate: [AuthGuard]
-}
+},
+{path:'todos', loadChildren: ()=> import('./pages/todos/todo.module').then((m)=> m.TodoModule), 
+canActivate: [AuthGuard]
+},
 
 ];
 

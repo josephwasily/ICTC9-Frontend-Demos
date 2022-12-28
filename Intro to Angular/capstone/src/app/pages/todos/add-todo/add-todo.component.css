@@ -1,0 +1,28 @@
+.container {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.container > form > * {
+    width: 100%;
+}
+.language {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.language button {
+    justify-self: center;
+}
+
+    
+.mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+  
+  .mat-mdc-row:hover .mat-mdc-cell {
+    border-color: currentColor;
+  }
+  

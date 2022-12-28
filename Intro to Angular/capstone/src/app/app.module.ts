@@ -12,10 +12,15 @@ import {AngularFireModule} from '@angular/fire/compat'
 import {AngularFireAuthModule} from '@angular/fire/compat/auth'
 import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { LayoutComponent } from './lib/layout/layout.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AddTodoComponent } from './pages/todos/add-todo/add-todo.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +28,7 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
     MaterialModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     AngularFireAuthModule
   ],
   providers: [],

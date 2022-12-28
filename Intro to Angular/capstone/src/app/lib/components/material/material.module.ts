@@ -10,7 +10,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatPaginatorModule} from '@angular/material/paginator'
 const material = [
   MatButtonModule,
   MatFormFieldModule,
@@ -19,7 +19,8 @@ const material = [
   MatToolbarModule,
   MatTableModule,
   MatIconModule,
-  MatDialogModule
+  MatDialogModule,
+  MatPaginatorModule
 
 
 ]

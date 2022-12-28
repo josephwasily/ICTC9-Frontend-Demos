@@ -11,23 +11,23 @@ export class StudentsFirebaseService {
   constructor(private firestore: AngularFirestore) {
     this.usersCollection = this.firestore.collection('users');
    }
-  addStudent(student: Student){
-     let addedStudent = this.usersCollection?.add(student);
-     return from(addedStudent);
- 
-  }
-  getStudents(): Observable<Student[]>{
+    addStudent(student: Student){
+      let addedStudent = this.usersCollection?.add(student);
+      return from(addedStudent);
+  
+    }
+    getStudents(): Observable<Student[]>{
 
-      return this.usersCollection.valueChanges({"idField":'uid'});
+        return this.usersCollection.valueChanges({"idField":'uid'});
+    }
+    getStudentById(id : string){
+      return this.usersCollection.doc(id).valueChanges();
+    }
+    deleteStudent(id: string){
+      return from(this.usersCollection.doc(id).delete());
+    }
+    updateStudent(id: string, student: Student){
+      return from(this.usersCollection.doc(id).update({...student}));
   }
-  getStudentById(id : string){
-     return this.usersCollection.doc(id).valueChanges();
-  }
-  deleteStudent(id: string){
-    return from(this.usersCollection.doc(id).delete());
-  }
-  updateStudent(id: string, student: Student){
-    return from(this.usersCollection.doc(id).update({...student}));
-}
 
 }
