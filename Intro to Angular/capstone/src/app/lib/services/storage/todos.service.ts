@@ -9,7 +9,10 @@ import { Todo } from '../../interfaces/todo';
 export class TodosService {
   private todosCollection! : AngularFirestoreCollection<Todo>;
   constructor(private fireStore: AngularFirestore) {
-      this.todosCollection = this.fireStore.collection("todos")
+      this.todosCollection = this.fireStore.collection("todos");
+      
+
+
 
    }
 

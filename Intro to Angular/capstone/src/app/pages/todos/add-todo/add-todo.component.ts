@@ -31,7 +31,7 @@ export class AddTodoComponent implements OnInit, AfterViewInit{
         switchMap( (val) => {
 
           if(val){
-            return this.todosService.getTodos(val.uid); 
+            return this.todosService.getTodos(val.id +''); 
         }
         else {
           return of(null);
@@ -66,7 +66,7 @@ export class AddTodoComponent implements OnInit, AfterViewInit{
                 return  this.todosService.addTodo({
                   name: this.name?.value + '',
                   done: false,
-                  userId: val.uid
+                  userId: val.id+''
                 })
             }
             else {

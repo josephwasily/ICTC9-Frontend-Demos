@@ -1,4 +1,3 @@
-import { LayoutComponent } from './lib/layout/layout.component';
 import { AuthService } from './lib/services/auth/auth.service';
 import { Component, ViewChild, ElementRef, OnInit, AfterViewInit } from '@angular/core';
 
